@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+body {
+    font-family: 'Bookman Old Style', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+    color: #1a1a1a;
+    line-height: 2;
+    font-size: 18px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #4B8BBE;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #4B8BBE;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #4B8BBE;
+    bottom: -5px;
+    left: 50%;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+section {
+    margin-bottom: 60px;
+}
+
+section h2 {
+    font-size: 2rem;
+    color: #4B8BBE;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+section h2::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background: #FFE873;
+    bottom: -10px;
+    left: 0;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+}
+
+ul li strong {
+    color: #4B8BBE;
+}
+
+
+.certificate-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.certificate-buttons button,
+.project-link,
+.contact-button,
+#resume a {
+    background: linear-gradient(135deg, #4B8BBE, #306998);
+    color: white;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 30px;
+    margin: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 2px solid #050505;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.certificate-buttons button:hover,
+.project-link:hover,
+.contact-button:hover,
+#resume a:hover {
+    background: linear-gradient(135deg, #FFE873, #FFD43B);
+    transform: translateY(-4px);
+    color: #1a1a1a;
+}
+
+
+#pdfViewer {
+    width: 100%;
+    max-width: 1000px;
+    height: 600px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin: 30px auto;
+    display: none;
+    position: relative;
+}
+
+#pdfViewer iframe {
+    width: 100%;
+    height: 100%;
+}
+
+#pdfViewer button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4d4d;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#pdfViewer button:hover {
+    background: #cc0000;
+}
+
+
+#resume {
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #eaeaea;
+    color: #555;
+}
+
+
+#contact p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+#contact i {
+    margin-right: 10px;
+    font-size: 1.8rem;
+    color: #306998;
+}
+
+
+@keyframes subtleBounce {
+    0%, 100% { transform: translateY(0) translateX(-4px); }
+    25% { transform: translateY(-4px) translateX(0px); }
+    50% { transform: translateY(0) translateX(-10px); }
+    75% { transform: translateY(-10px) translateX(0px); }
+}
+
+.pulse-button {
+    animation: subtleBounce 1s infinite;
+}
+
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    .certificate-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #pdfViewer {
+        height: 400px;
+    }
+}
+
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .loading-spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #4B8BBE;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: rotate 1.5s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #f9f9f9;
+}
